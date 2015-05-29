@@ -12,16 +12,16 @@ enable :sessions
 
 # Filter that runs before all routes are processed
 # This is run first, then the code within the routes below
-before do 
-	# If they have a session id, we know it's someone who has successfully authenticated
-	if session[:user_id] != nil
-		# If there's a user with an active session, go ahead and get the data for the user
-		@current_user = User.find(session[:user_id])
-	else 
-		# We don't know who this is yet
-		@current_user = nil
-	end
-end 
+# before do 
+# 	# If they have a session id, we know it's someone who has successfully authenticated
+# 	if session[:user_id] != nil
+# 		# If there's a user with an active session, go ahead and get the data for the user
+# 		@current_user = User.find(session[:user_id])
+# 	else 
+# 		# We don't know who this is yet
+# 		@current_user = nil
+# 	end
+# end 
 
 # Homepage route
 get '/' do
