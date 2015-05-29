@@ -1,9 +1,26 @@
 .nav{
+	postion: relative;
 	list-style-type: none;
+	
 
 }
 
 li{
+	postion: fixed;
+	left: 200px;
 	float:left;
 	margin: 3em;
+	background-color: lightgray;
+}
+li:hover {
+	background-color: lightyellow;
+}
+#main {
+	clear: both;
+}
+
+#login {
+	postion: relative;
+	left: 500px;
+
 }
