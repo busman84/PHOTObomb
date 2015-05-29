@@ -56,10 +56,13 @@ post '/login' do
 		redirect('/')
 	else 
 		# Not a valid user
-		redirect('/login')
+		redirect('/login2')
 	end
 end 
 
+get '/login2' do 
+	erb :login2
+end
 # Display registration form
 get '/register' do
 	erb :register
