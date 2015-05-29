@@ -36,7 +36,3 @@ class User < ActiveRecord::Base
 	
 end
 
-# class Upload < ActiveRecord::Base
-
-
-# 	end
