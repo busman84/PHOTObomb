@@ -101,6 +101,7 @@ post '/upload' do
 	upload.save
 
 	session[:user_id] = user.id
+	redirect('/')
 
 end
 
