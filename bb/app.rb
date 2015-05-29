@@ -22,6 +22,9 @@ before do
 		@current_user = nil
 	end
 end 
+# after do
+#   ActiveRecord::Base.connection.close
+# end
 
 # Homepage route
 get '/' do
@@ -59,6 +62,7 @@ post '/login' do
 		redirect('/login2')
 	end
 end 
+
 
 get '/login2' do 
 	erb :login2
