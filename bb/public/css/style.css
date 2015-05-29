@@ -6,21 +6,35 @@
 }
 
 li{
-	postion: fixed;
-	left: 200px;
+	postion: relative;
+	left: 2em;
 	float:left;
-	margin: 3em;
+	margin: 2em;
 	background-color: lightgray;
+	color: black;
+	padding: .5em;
 }
+
 li:hover {
-	background-color: lightyellow;
+	background-color: #f4eb26;
+	border-color: black;
+	border: .2em solid;
+	margin: 1.8em;
 }
+
 #main {
 	clear: both;
 }
 
 #login {
 	postion: relative;
-	left: 500px;
+}
 
+#input {
+	font-size: 20px;
+	margin: .2em;
+	border-radius: .2em;
+	background-color: lightgray;
+	color: white;
+	
 }
