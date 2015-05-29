@@ -93,7 +93,7 @@ get '/logout' do
 end
 
 get '/upload' do
-	erb :products
+	erb :upload
 	end
 
 post '/upload' do
