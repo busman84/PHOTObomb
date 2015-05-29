@@ -1,12 +1,21 @@
 .nav{
-	postion: relative;
+
 	list-style-type: none;
 	
 
 }
+a {
+	postion: relative;
+	left: 20em;
+
+}
+ul {
+
+	left: 20em;
+}
 
 li{
-	postion: relative;
+
 	left: 2em;
 	float:left;
 	margin: 2em;
@@ -36,5 +45,5 @@ li:hover {
 	border-radius: .2em;
 	background-color: lightgray;
 	color: white;
-	
+
 }
