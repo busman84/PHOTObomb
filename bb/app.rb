@@ -92,13 +92,13 @@ get '/logout' do
 	redirect('/login')
 end
 
-get '/products' do
+get '/upload' do
 	erb :products
 	end
 
-post '/products' do
-	cart = Cart.new(:cart => params[:cart])
-	cart.save
+post '/upload' do
+	photo = Photo.new(:photo => params[:photo])
+	photo.save
 
 end
 
