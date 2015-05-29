@@ -33,4 +33,10 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	class Upload < ActiveRecord::Base
+
+
+	end
+	
+
 end
