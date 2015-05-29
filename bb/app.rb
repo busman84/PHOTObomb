@@ -16,7 +16,13 @@ before do
 	# If they have a session id, we know it's someone who has successfully authenticated
 	if session[:user_id] != nil
 		# If there's a user with an active session, go ahead and get the data for the user
+		ActiveRecord::Base.establish_connection(
+	:adapter => 'postgresql',
+	:host => 'localhost',
+	:database => 'photo'
+)
 		@current_user = User.find(session[:user_id])
+		ActiveRecord::Base.connection.close
 	else 
 		# We don't know who this is yet
 		@current_user = nil
@@ -49,7 +55,13 @@ post '/login' do
 	password = params['password']
 
 	# Get an instance of the user with this username 
+	ActiveRecord::Base.establish_connection(
+	:adapter => 'postgresql',
+	:host => 'localhost',
+	:database => 'photo'
+)
 	user = User.find_by(:user_name => user_name)
+	ActiveRecord::Base.connection.close
 
 	# If a user by this user_name was found and we can authenticate them
 	if user && user.authenticate(password)
@@ -75,9 +87,15 @@ end
 # Process registration data and add the new user
 post '/register' do 
 	# Create an instance of a user with the new data posted
+	ActiveRecord::Base.establish_connection(
+	:adapter => 'postgresql',
+	:host => 'localhost',
+	:database => 'photo'
+)
 	user = User.new(:user_name => params[:user_name], :email => params[:email], :password => params[:password])
 	user.hash_password
 	user.save
+	ActiveRecord::Base.connection.close
 
 	# We need to set a session variable or they will have to log in when going to the index page, which 
 	# looks like a bug
