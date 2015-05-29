@@ -97,8 +97,10 @@ get '/upload' do
 	end
 
 post '/upload' do
-	photo = Photo.new(:photo => params[:photo])
-	photo.save
+	upload = Upload.new(:upload => params[:upload])
+	upload.save
+
+	session[:user_id] = user.id
 
 end
 
