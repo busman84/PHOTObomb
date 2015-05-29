@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 
 # Include the user model 
 require_relative './user'
+require_relative './upload'
 
 # Sessions are turned off by default, so enable it here
 # We use sessions in our app to keep track of authenticated users. If we didn't 
@@ -121,15 +122,24 @@ get '/upload' do
 	erb :upload
 	end
 
-post '/upload' do
-	upload = Upload.new(:upload => params[:upload])
-	upload.save
+post '/upload' do 
+	# Create an instance of a user with the new data posted
+	ActiveRecord::Base.establish_connection(
+	:adapter => 'postgresql',
+	:host => 'localhost',
+	:database => 'photo'
+)
+	photo = Upload.new(:photo => params[:photo], :user_id => session[:user_id])
+	photo.save
+	ActiveRecord::Base.connection.close
 
-	session[:user_id] = user.id
+	# We need to set a session variable or they will have to log in when going to the index page, which 
+	# looks like a bug
+	
+
+	# For our purposes, they are now authorized to see our protected content
 	redirect('/')
-
 end
-
 
 
 
